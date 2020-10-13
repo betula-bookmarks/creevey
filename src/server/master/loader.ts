@@ -177,6 +177,13 @@ function minifyStories(ast: t.File, source: string): string {
         },
       });
     },
+    ExportNamedDeclaration(namedPath) {
+      // TODO remove any params from `export const parameters = {}`
+      // TODO remove `export const decorators = []`
+      // TODO Remove `globalTypes`
+      // TODO Figure out what exporting
+      // TODO Add tests
+    },
     CallExpression(path) {
       if (path.get('callee').isIdentifier({ name: 'addDecorator' })) {
         isTransformed = true;
